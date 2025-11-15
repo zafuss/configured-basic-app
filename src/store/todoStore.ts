@@ -14,6 +14,11 @@ interface TodoState {
   fetchTodoById: (id: number) => Promise<void>;
   createTodo: (data: CreateTodoDTO) => Promise<void>;
   updateTodo: (data: UpdateTodoDTO, id: number) => Promise<void>;
+
+  // UI helpers
+  setSelectedTodo: (todo: Todo | null) => void;
+  clearError: () => void;
+  resetStore: () => void;
 }
 
 const initialState = {
@@ -91,5 +96,16 @@ export const useTodoStore = create<TodoState>((set, get) => ({
         error: e instanceof Error ? e.message : 'Failed to update todo',
       });
     }
+  },
+
+  // UI Helpers
+  setSelectedTodo: (todo: Todo | null) => {
+    set({ selectedTodo: todo });
+  },
+  clearError: () => {
+    set({ error: null });
+  },
+  resetStore: () => {
+    set({ ...initialState });
   },
 }));
