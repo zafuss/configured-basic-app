@@ -4,6 +4,7 @@ import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import { PaperProvider } from 'react-native-paper';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function RootLayout() {
   // Get color scheme
@@ -31,11 +32,15 @@ export default function RootLayout() {
 
   return (
     <PaperProvider theme={theme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="pagination" options={{ headerShown: false }} />
-        <Stack.Screen name="colorPicker" options={{ headerShown: false }} />
-      </Stack>
+      <SafeAreaProvider>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="pagination" options={{ headerShown: false }} />
+          <Stack.Screen name="colorPicker" options={{ headerShown: false }} />
+          <Stack.Screen name="menu" options={{ headerShown: false }} />
+          <Stack.Screen name="dialog" options={{ headerShown: false }} />
+        </Stack>
+      </SafeAreaProvider>
     </PaperProvider>
   );
 }
