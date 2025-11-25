@@ -39,6 +39,7 @@ export default function RootLayout() {
           <Stack.Screen name="colorPicker" options={{ headerShown: false }} />
           <Stack.Screen name="menu" options={{ headerShown: false }} />
           <Stack.Screen name="dialog" options={{ headerShown: false }} />
+          <Stack.Screen name="timeframe" options={{ headerShown: false }} />
         </Stack>
       </SafeAreaProvider>
     </PaperProvider>
